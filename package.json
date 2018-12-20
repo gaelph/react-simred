@@ -22,6 +22,7 @@
     "cross-env": "^5.2.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
-    "nyc": "^13.1.0"
+    "nyc": "^13.1.0",
+    "react-dom-server": "0.0.5"
   }
 }
