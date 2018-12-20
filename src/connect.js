@@ -1,30 +1,46 @@
 import * as React from 'react'
-import { Context } from './Context'
+import ReactSimredContext from './context'
 
 function wrapComponent(Component, options) {
   const { props, mapStateToProps, mapActionsToProps } = options
 
-  return ({ storeState, store }) => {
-    props = { ...props, ...mapStateToProps(storeState), ...mapActionsToProps(store.getActions()) }
+  return (ctx) => {
+    let wrappedProps = { ...props }
+
+    if (ctx) {
+      const { storeState, store } = ctx
+
+      wrappedProps = {
+        ...mapStateToProps(storeState),
+        ...mapActionsToProps(store.getActions()),
+        ...wrappedProps
+      }
+    }
     
-    return <Component {...props} />
+    return <Component {...wrappedProps} />
   }
 }
 
-export function connect(mapStateToProps, mapActionsToProps) {
+export function connect(mapStateToProps, mapActionsToProps, context) {
+  const ContextToUse = context || ReactSimredContext
 
   return function (Component) {
     
-    return (props) => {
-      const options = { props, mapStateToProps, mapActionsToProps }
-      const ContextToUse = props.context || Context
-      const WrappedComponent = wrapComponent(Component, options)
+    return class extends React.Component {
+      constructor(props) {
+        super(props)
+      }
       
-      return (
-        <ContextToUse.Consumer>
-          <WrappedComponent/>
-        </ContextToUse.Consumer>
-      )
+      render() {
+        const options = { props: this.props, mapStateToProps, mapActionsToProps }
+        const WrappedComponent = wrapComponent(Component, options)
+        
+        return (
+          <ContextToUse.Consumer>
+            {WrappedComponent}
+          </ContextToUse.Consumer>
+        )
+      }
     }
   }
 }

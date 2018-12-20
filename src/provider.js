@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { Context } from './context'
+import ReactSimredContext from './context'
 
-class Provider extends React.Provider {
+export class Provider extends React.Component {
   constructor(props) {
     super(props)
 
@@ -29,12 +29,12 @@ class Provider extends React.Provider {
   }
 
   render() {
-    const Context = this.props.context || Context
+    const ContextToUse = this.props.context || ReactSimredContext
     
     return (
-      <Context.Provider value={this.state}>
-        { this.props.children }
-      </Context.Provider>
+      <ContextToUse.Provider value={this.state}>
+        {this.props.children}
+      </ContextToUse.Provider>
     )
   }
 }

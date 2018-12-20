@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=build babel src --out-dir ./lib",
-    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha tests"
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha tests --require @babel/register"
   },
   "keywords": [],
   "author": "",
@@ -18,11 +18,16 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-transform-react-jsx": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "babel-plugin-istanbul": "^5.1.0",
     "chai": "^4.2.0",
     "cross-env": "^5.2.0",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
-    "react-dom-server": "0.0.5"
+    "react-dom": "^16.7.0",
+    "react-dom-server": "0.0.5",
+    "react-universal": "0.0.5",
+    "simred": "file:/Users/gaelphilippe/IdeaProjects/simred/simred"
   }
 }
