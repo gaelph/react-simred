@@ -23,7 +23,7 @@ export class Provider extends React.Component {
 
   subscribe() {
     const self = this
-    this.store.subscribe((state) => {
+    this.state.store.subscribe((state) => {
       self.setState({ storeState: state })
     })
   }
