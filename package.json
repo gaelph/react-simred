@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=build babel src --out-dir ./lib",
-    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha tests --require @babel/register"
+    "test": "cross-env NODE_ENV=test nyc --all --recursive --require @babel/register --reporter=html --reporter=text mocha tests"
   },
   "keywords": [],
   "author": "",
@@ -29,5 +29,8 @@
     "react-dom-server": "0.0.5",
     "react-universal": "0.0.5",
     "simred": "file:/Users/gaelphilippe/IdeaProjects/simred/simred"
+  },
+  "nyc": {
+    "exclude": ["src", "tests"]
   }
 }
