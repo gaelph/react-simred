@@ -11,7 +11,7 @@ function wrapComponent(Component, options) {
       const { storeState, store } = ctx
 
       wrappedProps = {
-        ...mapStateToProps(storeState),
+        ...mapStateToProps(storeState, wrappedProps),
         ...mapActionsToProps(store.getActions()),
         ...wrappedProps
       }
