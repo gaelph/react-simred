@@ -14,6 +14,7 @@
     "react": "^16.7.0"
   },
   "devDependencies": {
+    "@types/react": "^16.7.18",
     "babel-cli": "^6.26.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-istanbul": "^5.1.0",
@@ -35,6 +36,9 @@
       "!**/node_modules/**",
       "!**/vendor/**"
     ],
-    "coverageReporters": ["html", "text"]
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
   }
 }
