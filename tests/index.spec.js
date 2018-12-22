@@ -1,6 +1,5 @@
-import { expect } from 'chai'
 import * as React from 'react'
-import { renderToString} from 'react-dom/server'
+import { renderToString } from 'react-dom/server'
 
 import Simred, { createReducer } from 'simred'
 import { connect, Provider } from '../lib/index'
