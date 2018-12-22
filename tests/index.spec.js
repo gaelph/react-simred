@@ -24,7 +24,7 @@ describe('Simple test', function () {
       </Provider>
     ))
 
-    expect(str).to.equal('<div>test</div>')
+    expect(str).toEqual('<div>test</div>')
   })
 
   it('renders a loaded state', function () {
@@ -53,6 +53,6 @@ describe('Simple test', function () {
       </Provider>
     ))
 
-    expect(result).to.equal('<ul><li>item</li></ul>')
+    expect(result).toEqual('<ul><li>item</li></ul>')
   })
 })
