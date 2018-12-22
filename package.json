@@ -28,10 +28,13 @@
     "react-universal": "0.0.5",
     "simred": "file:/Users/gaelphilippe/IdeaProjects/simred/simred"
   },
-  "nyc": {
-    "exclude": [
-      "src",
-      "tests"
-    ]
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageReporters": ["html", "text"]
   }
 }
