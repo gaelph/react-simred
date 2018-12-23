@@ -12,7 +12,7 @@ function wrapComponent(Component, options) {
 
       wrappedProps = {
         ...mapStateToProps(storeState, wrappedProps),
-        ...mapActionsToProps(store.getActions(), wrappedProps),
+        ...mapActionsToProps(store.actions, wrappedProps),
         ...wrappedProps
       }
     }
