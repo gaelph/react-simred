@@ -7,6 +7,7 @@ function wrapComponent(Component, options) {
   return (ctx) => {
     let wrappedProps = { ...props }
 
+    /* istanbul ignore else */
     if (ctx) {
       const { storeState, store } = ctx
 
