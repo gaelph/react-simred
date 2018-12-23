@@ -1,7 +1,7 @@
 {
   "name": "react-simred",
   "version": "1.0.0",
-  "description": "",
+  "description": "React indings for simred state management",
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src --out-dir ./lib",
