@@ -31,7 +31,7 @@ describe('Simple test', function () {
   it('renders a loaded state', function () {
     const reducers = {
       list: createReducer({
-        add: (state, actions, item) => {
+        add: (state) => (item) => {
           return [...state, item]
         }
       }, [])
@@ -60,7 +60,30 @@ describe('Simple test', function () {
   it('mounts a provider', function () {
     const reducers = {
       list: createReducer({
-        add: (state, actions, item) => {
+        add: (state) => (item) => {
+          return [...state, item]
+        }
+      }, [])
+    }
+
+    const store = Simred.createStore(reducers, { list: ['item'] })
+
+    const Container = connect(
+      ({ list }) => ({ list }),
+      ({ list }) => ({...list})
+    )((props) => (<ul>
+      {
+        props.list.map((item, i) => <li key={i}>{item}</li>)
+      }
+    </ul>))
+    
+    const provider = renderer.create((
+      <Provider store={store}>
+        <Container test="test" />
+      </Provider>
+    ))
+
+  })
           return [...state, item]
         }
       }, [])
