@@ -84,6 +84,11 @@ describe('Simple test', function () {
     ))
 
   })
+
+  it('updates the provider state when the simred state updates', function () {
+    const reducers = {
+      list: createReducer({
+        add: (state) => (item) => {
           return [...state, item]
         }
       }, [])
@@ -106,5 +111,6 @@ describe('Simple test', function () {
       </Provider>
     ))
 
+    store.actions.list.add('item2')
   })
 })
