@@ -1,4 +1,4 @@
-# react-simred [![NPM version](https://badge.fury.io/js/react-simred.svg)](https://npmjs.org/package/react-simred) [![Build Status](https://travis-ci.org/gaelph/react-simred.svg?branch=master)](https://travis-ci.org/gaelph/react-simred)
+# react-simred [![NPM version](https://badge.fury.io/js/react-simred.svg)](https://npmjs.org/package/react-simred)  [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]() ![Tests](https://img.shields.io/badge/tests-4%2F4-brightgreen.svg) ![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)
 
 React indings for Simred state management
 
