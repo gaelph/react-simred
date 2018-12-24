@@ -331,4 +331,4 @@ render(
 And Voilà!
 ## License
 
-ISC © [Gaël PHILIPPE](https://github.com/gaelph)
+MIT © [Gaël PHILIPPE](https://github.com/gaelph)
