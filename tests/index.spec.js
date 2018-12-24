@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { renderToString } from 'react-dom/server'
 
 import Simred, { createReducer } from 'simred'
 import { connect, Provider } from '../src/index'
@@ -19,13 +18,13 @@ describe('Simple test', function () {
   it('renders without crashing', function () {
     const Cmp = connect(() => ({}), () => ({}))(CMP)
 
-    const str = renderToString((
-      <Provider store={{ getState: () => ({}), getActions: () => ({}) }}>
+    const render = renderer.create((
+      <Provider store={{ getState: () => ({}), getActions: () => ({}), subscribe: () => { } }}>
         <Cmp />
       </Provider>
     ))
 
-    expect(str).toEqual('<div>test</div>')
+    expect(render.toJSON()).toMatchObject({ type: 'div', props: {}, children: [ 'test' ]})
   })
 
   it('renders a loaded state', function () {
@@ -48,13 +47,17 @@ describe('Simple test', function () {
       }
     </ul>))
     
-    const result = renderToString((
+    const result = renderer.create((
       <Provider store={store}>
         <Container test="test" />
       </Provider>
     ))
 
-    expect(result).toEqual('<ul><li>item</li></ul>')
+    const expected = renderer.create((
+      <ul><li>item</li></ul>
+    ))
+
+    expect(result.toJSON()).toMatchObject(expected.toJSON())
   })
 
   it('mounts a provider', function () {
