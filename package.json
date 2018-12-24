@@ -1,6 +1,6 @@
 {
   "name": "react-simred",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React bindings for Simred state manager",
   "main": "lib/index.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "jest": "^23.6.0",
     "react-test-renderer": "^16.7.0",
     "react-universal": "0.0.5",
-    "simred": "^1.0.0"
+    "simred": "^1.0.1"
   },
   "jest": {
     "collectCoverage": true,
