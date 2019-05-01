@@ -7,6 +7,7 @@ If you're not sure what Simred is, visit the [Simred project page](https://githu
 ## Table of Content
 - [Installation](#installation)
 - [Usage](#usage)
+  - [Hooks](#hooks)
   - [For Redux Users](#for-redux-users)
   - [For the rest of the world](#for-the-rest-of-the-world)
 
@@ -21,6 +22,56 @@ $ npm install --save react-simred
 ---
 
 ## Usage
+### Hooks
+#### Passing the store
+
+```js
+import Simred from 'simred'
+import { Provider } from 'react-simred'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
+
+import { App } from './components'
+import { rootReducer } from './reducers'
+
+const store = Simred.createStore(rootReducer)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+)
+```
+
+#### useSelector(*selector*)
+The `useSelector()` hook allows you to select the parts of the state you need.
+```js
+import * as React from 'react'
+import { useSelector } from 'react-simred'
+
+export const UsernameComponent = (props) => {
+  const user = useSelector(state => state.user)
+
+  return <span>{user.firstname} {user.lastname}</span>
+}
+```
+
+#### useActions(*actionsSelector*)
+The `useActions()` hook allows you to get all or some of the actions in your store.
+```js
+import * as React from 'react'
+import { useSelector, useActions } from 'react-simred'
+
+export const UsernameComponent = (props) => {
+  const user = useSelector(state => state.user)
+  const actions = useActions() // all actions in the store
+  const userActions = useActions(actions => actions.user) // only userActions
+
+  return <span>{user.firstname} {user.lastname}</span>
+}
+```
+
 ### For Redux users
 If you used React with Redux, it works the exact same way
 #### Passing the store
