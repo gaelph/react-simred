@@ -30,7 +30,7 @@ export class Provider extends React.Component {
 
   render() {
     const ContextToUse = this.props.context || ReactSimredContext
-    
+
     return (
       <ContextToUse.Provider value={this.state}>
         {this.props.children}
