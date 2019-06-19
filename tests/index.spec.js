@@ -179,7 +179,7 @@ describe('Simple test', function () {
     ))
 
     expect(typeof actions).toBe('object')
-    expect(Object.keys(actions)).toMatchObject(['list'])
+    expect(Object.keys(actions)).toMatchObject(['add', 'list'])
     expect(Object.keys(actions.list)).toMatchObject(['add'])
     expect(typeof actions.list.add).toBe('function')
   })
